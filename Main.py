@@ -189,7 +189,7 @@ def main():
         
         if submitted:
             answer_list = [mapping(responses[q]) for q in questions]
-            scaled_features = st.session_state.scaler.transform([answer_list])
+            scaled_features = [answer_list]
             prediction = st.session_state.model.predict(scaled_features)
             predicted_role = Category_mapping.get(prediction[0], "Unknown Role")
             
