@@ -106,24 +106,23 @@ Category_mapping = {
     9: 'Helpdesk Engineer', 7: 'Graphics Designer'
 }
 
-questions = [
-    "How would you rate your understanding of Database Fundamentals?",
-    "How would you rate your understanding of Computer Architecture?",
-    "How would you rate your understanding of Distributed Computing Systems?",
-    "How would you rate your understanding of Networking",
-    "How would you rate your understanding of Computer Forensics Fundamentals?",
-    "How would you rate your Cybersecurity skills?",
-    "How would you rate your Software Development skills?",
-    "How would you rate your Programming skills?",
-    "How would you rate your Project Management skills?",
-    "How would you rate your Technical Communication skills?",
-    "How would you rate your AI/ML skills?",
-    "How would you rate your Software Engineering skills?",
-    "How would you rate your Data Science skills?",
-    "How would you rate your Troubleshooting skills?",
-    "How would you rate your Graphics Designing skills?"
+questions =[
+    "What is your level of expertise in database design, SQL, and data management principles?",
+"How proficient are you in understanding CPU architecture, memory systems, and hardware components?",
+"Rate your experience with implementing and managing distributed systems and parallel processing.",
+"How skilled are you in network protocols, configuration, and troubleshooting?",
+"Rate your ability to conduct digital investigations and recover electronic evidence.",
+"What is your proficiency level in implementing cybersecurity measures and threat detection?",
+"How experienced are you in developing and deploying software applications?",
+"Rate your proficiency in writing efficient code across multiple programming languages.",
+"How experienced are you in leading technical projects and managing development teams?",
+"Rate your ability to explain complex technical concepts to diverse audiences.",
+"What is your skill level in developing and implementing machine learning models?",
+"How proficient are you in software design patterns and development methodologies?",
+"Rate your expertise in statistical analysis and data visualization techniques.",
+"How skilled are you in identifying and resolving complex technical issues?",
+"What is your proficiency level in creating professional digital designs and graphics?"
 ]
-
 options = ["Not Interested", "Poor", "Beginner", "Average", "Intermediate", "Excellent", "Professional"]
 
 
