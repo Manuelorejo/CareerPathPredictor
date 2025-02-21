@@ -104,19 +104,7 @@ def load_and_train_model():
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     
-    base_models = [
-        ('rf', RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)),
-        ('svm', SVC(kernel='rbf', probability=True, random_state=42, max_iter=1000)),
-        ('lr', LogisticRegression(random_state=42, max_iter=1000)),
-        ('xgb', xgb.XGBClassifier())
-    ]
-    
-    meta_model = LogisticRegression()
-    stacking_classifier = StackingClassifier(
-        estimators=base_models,
-        final_estimator=meta_model,
-        stack_method='predict_proba'
-    )
+    stacking_classifier = SVC(kernel='rbf', probability=True, random_state=42, max_iter=1000)
     
     stacking_classifier.fit(X_train_scaled, y_train)
     return stacking_classifier, scaler
