@@ -84,7 +84,7 @@ questions = [
 
 options = ["Not Interested", "Poor", "Beginner", "Average", "Intermediate", "Excellent", "Professional"]
 
-@st.cache_resource
+
 def load_and_train_model():
     """Load data and train the model"""
     training_df = pd.read_csv('CleanedData.csv')
