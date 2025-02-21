@@ -85,6 +85,13 @@ questions = [
 options = ["Not Interested", "Poor", "Beginner", "Average", "Intermediate", "Excellent", "Professional"]
 
 
+
+def reset_form():
+    for i in range(len(questions)):
+        if f"question_{i}" in st.session_state:
+            del st.session_state[f"question_{i}"]
+            
+            
 def load_and_train_model():
     """Load data and train the model"""
     training_df = pd.read_csv('CleanedData.csv')
@@ -174,8 +181,11 @@ def main():
         # Center the submit button
         col1, col2, col3 = st.columns([1,1,1])
         with col2:
-            submitted = st.form_submit_button("Predict My Career Path 🚀", 
-                                           use_container_width=True)
+            submitted = st.form_submit_button(
+                "Predict My Career Path 🚀", 
+                on_click=reset_form(),
+                use_container_width=True
+            )
         
         if submitted:
             answer_list = [mapping(responses[q]) for q in questions]
