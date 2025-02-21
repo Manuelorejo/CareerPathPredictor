@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import StackingClassifier
 
 # Set page configuration
@@ -145,7 +145,7 @@ def load_and_train_model():
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     
-    stacking_classifier = SVC(kernel='rbf', probability=True, random_state=42, max_iter=1000)
+    stacking_classifier = GaussianNB()
     
     stacking_classifier.fit(X_train_scaled, y_train)
     return stacking_classifier, scaler
