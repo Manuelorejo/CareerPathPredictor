@@ -19,35 +19,77 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
+    /* Base styles */
     .main {
-        padding: 20px;
-    }
-    .stRadio > label {
-        background-color: #f0f2f6;
         padding: 10px;
-        border-radius: 5px;
-        margin: 5px 0;
     }
+    
+    /* Form styling */
     .stForm {
-        background-color: white;
-        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 15px;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    
+    /* Text colors and spacing */
     h1 {
-        color: #1f77b4;
+        color: #1f77b4 !important;
         text-align: center;
-        padding-bottom: 20px;
+        padding-bottom: 15px;
+        font-size: calc(1.5rem + 1vw) !important;
     }
+    
     h2 {
-        color: #2c3e50;
-        margin-bottom: 20px;
+        color: #2c3e50 !important;
+        margin-bottom: 15px;
+        font-size: calc(1.2rem + 0.5vw) !important;
     }
+    
+    h5 {
+        color: #2c3e50 !important;
+        font-size: calc(0.9rem + 0.3vw) !important;
+    }
+    
+    /* Radio button improvements */
+    .stRadio > label {
+        color: #2c3e50 !important;
+        background-color: #f0f2f6;
+        padding: 8px;
+        border-radius: 5px;
+        margin: 3px 0;
+        font-size: calc(0.8rem + 0.2vw) !important;
+    }
+    
+    /* Prediction box */
     .prediction-box {
-        padding: 20px;
+        padding: 15px;
         border-radius: 10px;
-        margin: 20px 0;
+        margin: 15px 0;
         text-align: center;
+        background-color: #e3f2fd !important;
+    }
+    
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+        .main {
+            padding: 5px;
+        }
+        
+        .stForm {
+            padding: 10px;
+        }
+        
+        .stRadio > label {
+            padding: 5px;
+            margin: 2px 0;
+        }
+        
+        /* Ensure text is visible on mobile */
+        p, label, .stRadio label {
+            color: #2c3e50 !important;
+            font-size: 0.9rem !important;
+        }
     }
     </style>
     """, unsafe_allow_html=True)
@@ -132,7 +174,7 @@ def main():
     
     # Introduction
     col1, col2, col3 = st.columns([1,2,1])
-    with col2:
+    with col2:  
         st.markdown("""
         <div style='text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 10px; margin-bottom: 30px'>
             <h2>Welcome to Your Career Assessment!</h2>
@@ -149,14 +191,10 @@ def main():
     with st.form("skill_assessment"):
         st.markdown("<h2>Skills Assessment Form</h2>", unsafe_allow_html=True)
         
-        # Create two columns for questions
-        col1, col2 = st.columns(2)
-        responses = {}
-        
-        # Distribute questions between columns
-        half = len(questions) // 2
-        for i, question in enumerate(questions):
-            with col1 if i < half else col2:
+        # For mobile, use a single column instead of two
+        if st.session_state.get('mobile_view', False):
+            responses = {}
+            for i, question in enumerate(questions):
                 st.markdown(f"##### {question}")
                 response = st.radio(
                     "",
@@ -165,14 +203,28 @@ def main():
                     horizontal=True
                 )
                 responses[question] = response
-        
-        # Center the submit button
-        col1, col2, col3 = st.columns([1,1,1])
+        else:
+            # Desktop view with two columns
+            col1, col2 = st.columns(2)
+            responses = {}
+            half = len(questions) // 2
+            for i, question in enumerate(questions):
+                with col1 if i < half else col2:
+                    st.markdown(f"##### {question}")
+                    response = st.radio(
+                        "",
+                        options,
+                        key=f"question_{i}",
+                        horizontal=True
+                    )
+                    responses[question] = response
+
+        # Submit button styling
+        _, col2, _ = st.columns([1,2,1])
         with col2:
             submitted = st.form_submit_button(
-                "Predict My Career Path 🚀", 
-                on_click=reset_form(),
-                use_container_width=True
+                "Predict My Career Path 🚀",
+                use_container_width=True,
             )
         
         if submitted:
