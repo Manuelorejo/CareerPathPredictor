@@ -107,7 +107,7 @@ Category_mapping = {
 }
 
 questions =[
-    "What is your level of expertise in database design, SQL, and data management principles?",
+"What is your level of expertise in database design, SQL, and data management principles?",
 "How proficient are you in understanding CPU architecture, memory systems, and hardware components?",
 "Rate your experience with implementing and managing distributed systems and parallel processing.",
 "How skilled are you in network protocols, configuration, and troubleshooting?",
