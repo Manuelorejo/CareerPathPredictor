@@ -148,7 +148,7 @@ def load_and_train_model():
     
     stacking_classifier = SVC(kernel='rbf', probability=True, random_state=42, max_iter=1000)
     
-    stacking_classifier.fit(X_train_scaled, y_train)
+    stacking_classifier.fit(X_train, y_train)
     return stacking_classifier, scaler
 
 def mapping(answer):
