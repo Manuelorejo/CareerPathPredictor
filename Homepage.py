@@ -58,7 +58,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Hero section
-st.markdown("<h1 class='title'>🧭 Tech Career Advisor</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='title'>🧭 Career Path Predictor</h1>", unsafe_allow_html=True)
 st.markdown("<h2 class='subtitle'>Discover Your Ideal Tech Career Path</h2>", unsafe_allow_html=True)
 
 # Main image or illustration
