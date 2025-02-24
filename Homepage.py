@@ -2,7 +2,7 @@ import streamlit as st
 
 # Page configuration
 st.set_page_config(
-    page_title="Tech Career Advisor",
+    page_title="Career Path Predictor",
     page_icon="🧭",
     layout="wide"
 )
