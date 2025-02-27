@@ -2,7 +2,7 @@ import streamlit as st
 
 # Page configuration
 st.set_page_config(
-    page_title="Career Path Predictor",
+    page_title="Tech Career Advisor",
     page_icon="🧭",
     layout="wide"
 )
@@ -58,7 +58,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Hero section
-st.markdown("<h1 class='title'>🧭 Career Path Predictor</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='title'>🧭 Tech Career Advisor</h1>", unsafe_allow_html=True)
 st.markdown("<h2 class='subtitle'>Discover Your Ideal Tech Career Path</h2>", unsafe_allow_html=True)
 
 # Main image or illustration
@@ -130,30 +130,36 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Testimonials or additional information
+# Replace the career options section with this interactive version
 st.markdown("<h2 style='text-align: center; margin-top: 20px;'>Find Your Tech Career</h2>", unsafe_allow_html=True)
 
-career_options = [
-    "AI/ML Specialist", "Software Developer", "Database Administrator", 
-    "Cyber Security Specialist", "Project Manager", "Business Analyst",
-    "Graphics Designer", "Technical Writer", "Networking Engineer"
-]
+# Dictionary with career options and their descriptions
+career_info = {
+    "AI/ML Specialist": "AI/ML Specialists develop algorithms and models that enable computers to learn from data. They work on applications like natural language processing, computer vision, and predictive analytics. This role requires strong mathematics, statistics, and programming skills.",
+    
+    "Software Developer": "Software Developers design, code, and test computer programs for applications and operating systems. They collaborate with teams to create software solutions that meet user needs. This role requires programming skills, problem-solving abilities, and attention to detail.",
+    
+    "Database Administrator": "Database Administrators manage and maintain database systems to ensure data integrity, security, and performance. They design database structures, implement backup solutions, and optimize queries. This role requires SQL expertise and a good understanding of data management principles.",
+    
+    "Cyber Security Specialist": "Cyber Security Specialists protect systems and networks from digital threats. They implement security measures, conduct vulnerability assessments, and respond to security incidents. This role requires knowledge of security protocols, threat detection, and risk management.",
+    
+    "Project Manager": "Project Managers plan, execute, and close technology projects. They manage resources, timelines, and team coordination to ensure successful project delivery. This role requires leadership skills, organizational abilities, and technical knowledge.",
+    
+    "Business Analyst": "Business Analysts bridge the gap between IT and business needs. They gather requirements, analyze processes, and recommend technology solutions to improve business operations. This role requires analytical thinking, communication skills, and business acumen.",
+    
+    "Graphics Designer": "Graphics Designers in tech create visual elements for websites, applications, and digital products. They work on user interfaces, logos, and visual branding. This role requires creativity, design software expertise, and an understanding of user experience principles.",
+    
+    "Technical Writer": "Technical Writers create documentation for software, hardware, and technical processes. They translate complex information into clear, user-friendly content. This role requires excellent writing skills, attention to detail, and the ability to understand technical concepts.",
+    
+    "Networking Engineer": "Networking Engineers design, implement, and maintain computer networks. They configure hardware, troubleshoot connectivity issues, and ensure network security and performance. This role requires knowledge of networking protocols, hardware, and security principles."
+}
 
-# Display career options in a grid
+# Display career options in a grid with expandable information
 cols = st.columns(3)
-for i, career in enumerate(career_options):
+for i, (career, description) in enumerate(career_info.items()):
     with cols[i % 3]:
-        st.markdown(f"""
-        <div style='
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 5px;
-            text-align: center;
-        '>
-            {career}
-        </div>
-        """, unsafe_allow_html=True)
-
+        with st.expander(career):
+            st.write(description)
 # Footer
 st.markdown("""
 <div class='footer'>
