@@ -6,7 +6,7 @@ model = joblib.load('EnsembleModel.sav')
 
 #Page configuration
 st.set_page_config(
-    page_title="Skills Assessment | Tech Career Advisor",
+    page_title="Skills Assessment |  Career Advisor",
     page_icon="🎯",
     layout="wide"
 )
@@ -472,7 +472,7 @@ def show_results_page():
     # Footer
     st.markdown("""
         <div style='text-align: center; padding: 20px; margin-top: 50px; color: #666;'>
-            <p>Built with ❤️ using Streamlit and Machine Learning</p>
+            <p>2025 Career Advisor</p>
         </div>
     """, unsafe_allow_html=True)
 
