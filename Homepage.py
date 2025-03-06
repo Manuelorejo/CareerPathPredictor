@@ -70,9 +70,9 @@ with col2:
 st.markdown("""
 <div style='text-align: center; max-width: 800px; margin: 0 auto; padding: 20px;'>
     <p style='font-size: 18px;'>
-        Not sure which tech career path is right for you? Our Tech Career Advisor uses 
+        Not sure which career path is right for you? Our Career Advisor uses 
         machine learning to analyze your skills and interests to recommend the perfect 
-        tech role that matches your unique profile.
+         role that matches your unique profile.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -96,7 +96,7 @@ with col2:
     <div class='feature-card'>
         <div class='feature-icon'>🤖</div>
         <div class='feature-title'>AI Analysis</div>
-        <p>Our machine learning algorithm analyzes your responses using data from thousands of tech professionals.</p>
+        <p>Our machine learning algorithm analyzes your responses using data from thousands ofindustry professionals.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -131,7 +131,7 @@ st.markdown("""
 
 # Testimonials or additional information
 # Replace the career options section with this interactive version
-st.markdown("<h2 style='text-align: center; margin-top: 20px;'>Find Your Tech Career</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; margin-top: 20px;'>Find Your Career</h2>", unsafe_allow_html=True)
 
 # Dictionary with career options and their descriptions
 career_info = {
@@ -163,6 +163,6 @@ for i, (career, description) in enumerate(career_info.items()):
 # Footer
 st.markdown("""
 <div class='footer'>
-    <p>© 2025 Tech Career Advisor</p>
+    <p>© 2025 Career Advisor</p>
 </div>
 """, unsafe_allow_html=True)
