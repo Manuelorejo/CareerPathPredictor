@@ -272,7 +272,7 @@ def main():
         show_assessment_page()
 
 def show_assessment_page():
-    st.markdown("<h1>🎯 Tech Career Path Predictor</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>� Career Path Predictor</h1>", unsafe_allow_html=True)
     
     # Introduction
     col1, col2, col3 = st.columns([1,2,1])
@@ -280,7 +280,7 @@ def show_assessment_page():
         st.markdown("""
         <div style='text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 10px; margin-bottom: 30px'>
             <h2>Welcome to Your Career Assessment!</h2>
-            <p>This tool will help predict your ideal tech role based on your skills and interests.
+            <p>This tool will help predict your ideal role based on your skills and interests.
             Please rate your proficiency in various technical areas below.</p>
         </div>
         """, unsafe_allow_html=True)
