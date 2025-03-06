@@ -163,6 +163,6 @@ for i, (career, description) in enumerate(career_info.items()):
 # Footer
 st.markdown("""
 <div class='footer'>
-    <p>© 2025 Tech Career Advisor | Built with ❤️ using Streamlit</p>
+    <p>© 2025 Tech Career Advisor</p>
 </div>
 """, unsafe_allow_html=True)
