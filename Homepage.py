@@ -58,8 +58,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Hero section
-st.markdown("<h1 class='title'>🧭 Tech Career Advisor</h1>", unsafe_allow_html=True)
-st.markdown("<h2 class='subtitle'>Discover Your Ideal Tech Career Path</h2>", unsafe_allow_html=True)
+st.markdown("<h1 class='title'>🧭Career Advisor</h1>", unsafe_allow_html=True)
+st.markdown("<h2 class='subtitle'>Discover Your Ideal Career Path</h2>", unsafe_allow_html=True)
 
 # Main image or illustration
 col1, col2, col3 = st.columns([1, 3, 1])
