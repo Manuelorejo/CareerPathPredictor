@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 if st.button("← Back to Home", key="home_button"):
-    st.switch_page("homepage.py")
+    st.switch_page("Homepage.py")
     
 # Custom CSS
 st.markdown("""
