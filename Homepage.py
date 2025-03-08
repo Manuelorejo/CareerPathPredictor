@@ -14,24 +14,23 @@ st.markdown("""
         padding: 20px;
     }
     .title {
-        color: #1f77b4;
         text-align: center;
         font-size: calc(1.8rem + 1vw) !important;
         margin-bottom: 20px;
     }
     .subtitle {
-        color: #2c3e50;
         text-align: center;
         font-size: calc(1.2rem + 0.5vw) !important;
         margin-bottom: 30px;
     }
     .feature-card {
-        background-color: white;
+        background-color: rgba(100, 100, 100, 0.05);
         border-radius: 10px;
         padding: 20px;
         margin: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         height: 100%;
+        border: 1px solid rgba(150, 150, 150, 0.2);
     }
     .feature-icon {
         font-size: 40px;
@@ -42,7 +41,6 @@ st.markdown("""
         font-weight: bold;
         text-align: center;
         margin-bottom: 10px;
-        color: #1f77b4;
     }
     .cta-button {
         text-align: center;
@@ -51,8 +49,35 @@ st.markdown("""
     }
     .footer {
         text-align: center;
-        color: #666;
         padding-top: 50px;
+    }
+    
+    /* Style the expanders to be visible in both themes */
+    .stExpander {
+        border: 1px solid rgba(150, 150, 150, 0.2);
+        background-color: rgba(100, 100, 100, 0.03);
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    
+    /* Mobile styling */
+    @media (max-width: 768px) {
+        .feature-card {
+            background-color: rgba(100, 100, 100, 0.08);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(150, 150, 150, 0.3);
+        }
+        
+        /* Make text more readable on mobile */
+        .feature-card p {
+            font-weight: 500;
+        }
+        
+        /* Improve expandable career info visibility */
+        .stExpander {
+            border: 1px solid rgba(150, 150, 150, 0.3);
+            background-color: rgba(100, 100, 100, 0.05);
+        }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -96,7 +121,7 @@ with col2:
     <div class='feature-card'>
         <div class='feature-icon'>🤖</div>
         <div class='feature-title'>AI Analysis</div>
-        <p>Our machine learning algorithm analyzes your responses using data from thousands ofindustry professionals.</p>
+        <p>Our machine learning algorithm analyzes your responses using data from thousands of industry professionals.</p>
     </div>
     """, unsafe_allow_html=True)
 
