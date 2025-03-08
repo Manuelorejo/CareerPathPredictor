@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 if st.button("← Back to Home", key="home_button"):
-    st.switch_page("Homepage.py")
+    st.switch_page("homepage.py")
     
 # Custom CSS
 st.markdown("""
@@ -24,22 +24,29 @@ st.markdown("""
     
     /* Form styling */
     .stForm {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(240, 242, 246, 0.95);
         padding: 15px;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        border: 1px solid #e0e0e0;
     }
     
     /* Question group styling */
     .question-group {
         padding: 15px;
         margin: 10px 0;
-        border-bottom: 2px solid #ffffff;
+        border-bottom: 2px solid #c0c0c0;
+        background-color: #f8f9fa;
     }
     
-    /* Remove the line from the last question group */
+    /* Add a slight top border as well except for the first question */
+    .question-group:not(:first-child) {
+        border-top: 1px solid #d8d8d8;
+    }
+    
+    /* Make the last question's bottom border visible */
     .question-group:last-child {
-        border-bottom: none;
+        border-bottom: 2px solid #c0c0c0; 
     }
     
     /* Text colors and spacing */
@@ -57,9 +64,10 @@ st.markdown("""
     }
     
     h5 {
-        color: #2c3e50 !important;
+        color: #1a2e40 !important;
         font-size: calc(0.9rem + 0.3vw) !important;
         margin-bottom: 5px !important;
+        font-weight: 600;
     }
     
     /* Radio button styling */
@@ -68,17 +76,42 @@ st.markdown("""
     }
     
     .stRadio > label {
-        color: #2c3e50 !important;
-        background-color: #f0f2f6;
+        color: #1a2e40 !important;
+        background-color: #e8eaee;
         padding: 8px;
         border-radius: 5px;
         font-size: calc(0.8rem + 0.2vw) !important;
+        font-weight: 500;
     }
     
     /* Mobile adjustments */
     @media (max-width: 768px) {
         .question-group {
-            padding: 10px;
+            padding: 12px;
+            background-color: #f0f2f6;
+            border-bottom: 2px solid #b0b0b0;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #c0c0c0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        /* Make text darker on mobile */
+        h5 {
+            color: #162436 !important;
+            font-weight: 600;
+        }
+        
+        /* Make form more visible */
+        .stForm {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid #d0d0d0;
+        }
+        
+        /* Results page boxes need better contrast */
+        div[style*='background-color: white'] {
+            background-color: #f0f2f6 !important;
+            border: 1px solid #d0d0d0 !important;
         }
     }
     
@@ -272,7 +305,7 @@ def main():
         show_assessment_page()
 
 def show_assessment_page():
-    st.markdown("<h1>� Career Path Predictor</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>🧭 Career Path Predictor</h1>", unsafe_allow_html=True)
     
     # Introduction
     col1, col2, col3 = st.columns([1,2,1])
@@ -344,7 +377,7 @@ def show_assessment_page():
     # Footer
     st.markdown("""
         <div style='text-align: center; padding: 20px; margin-top: 50px; color: #666;'>
-            <p>Built with ❤️ using Streamlit and Machine Learning</p>
+            <p></p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -365,7 +398,7 @@ def show_results_page():
     """, unsafe_allow_html=True)
     
     st.markdown(f"""
-        <div style='background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);'>
+        <div style='background-color: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #d0d0d0;'>
             <p style='font-size: 1.1rem;'>{job_descriptions.get(st.session_state.predicted_role, "This role involves a unique combination of technical skills.")}</p>
         </div>
     """, unsafe_allow_html=True)
@@ -376,7 +409,7 @@ def show_results_page():
     """, unsafe_allow_html=True)
     
     st.markdown(f"""
-        <div style='background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);'>
+        <div style='background-color: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #d0d0d0;'>
             <p style='font-size: 1.1rem; white-space: pre-line;'>{st.session_state.explanation}</p>
         </div>
     """, unsafe_allow_html=True)
@@ -406,7 +439,7 @@ def show_results_page():
     }
     
     st.markdown(f"""
-        <div style='background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);'>
+        <div style='background-color: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #d0d0d0;'>
             <p style='font-size: 1.1rem;'>{career_outlooks.get(st.session_state.predicted_role, "This field offers strong growth opportunities for professionals with your skill set.")}</p>
         </div>
     """, unsafe_allow_html=True)
@@ -429,7 +462,7 @@ def show_results_page():
     """, unsafe_allow_html=True)
     
     st.markdown(f"""
-        <div style='background-color: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);'>
+        <div style='background-color: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #d0d0d0;'>
             <ul style='font-size: 1.1rem;'>
                 <li><strong>Research the role:</strong> Learn more about what {st.session_state.predicted_role}s do day-to-day</li>
                 <li><strong>Connect with professionals:</strong> Find people working in this field on LinkedIn or professional communities</li>
